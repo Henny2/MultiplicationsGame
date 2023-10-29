@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40C9944D2AEDEA3300FD73F5 /* MultiplicationGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9944C2AEDEA3300FD73F5 /* MultiplicationGameApp.swift */; };
-		40C9944F2AEDEA3300FD73F5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9944E2AEDEA3300FD73F5 /* ContentView.swift */; };
+		40C9944F2AEDEA3300FD73F5 /* SessionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C9944E2AEDEA3300FD73F5 /* SessionsView.swift */; };
 		40C994512AEDEA3700FD73F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C994502AEDEA3700FD73F5 /* Assets.xcassets */; };
 		40C994542AEDEA3700FD73F5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C994532AEDEA3700FD73F5 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		40C994492AEDEA3300FD73F5 /* MultiplicationGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40C9944C2AEDEA3300FD73F5 /* MultiplicationGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationGameApp.swift; sourceTree = "<group>"; };
-		40C9944E2AEDEA3300FD73F5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		40C9944E2AEDEA3300FD73F5 /* SessionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsView.swift; sourceTree = "<group>"; };
 		40C994502AEDEA3700FD73F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40C994532AEDEA3700FD73F5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				40C9944C2AEDEA3300FD73F5 /* MultiplicationGameApp.swift */,
-				40C9944E2AEDEA3300FD73F5 /* ContentView.swift */,
+				40C9944E2AEDEA3300FD73F5 /* SessionsView.swift */,
 				40C994502AEDEA3700FD73F5 /* Assets.xcassets */,
 				40C994522AEDEA3700FD73F5 /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40C9944F2AEDEA3300FD73F5 /* ContentView.swift in Sources */,
+				40C9944F2AEDEA3300FD73F5 /* SessionsView.swift in Sources */,
 				40C9944D2AEDEA3300FD73F5 /* MultiplicationGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
