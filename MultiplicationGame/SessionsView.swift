@@ -41,6 +41,13 @@ struct GameView: View {
     @Bindable var viewModel: ViewModel
     @State var questionNumber = 0
     @State var userAnswer = 0
+    func evaluateAnswer(question: Question){
+        if userAnswer == question.answer {
+            print("Correct answer")
+        } else {
+            print("That's wrong!")
+        }
+    }
     var body: some View {
         NavigationStack{
             VStack{
@@ -48,7 +55,20 @@ struct GameView: View {
                 Text(viewModel.questions[questionNumber].questionText).font(.title)
                 Spacer()
                 HStack() {
-                    TextField("Answer", value: $userAnswer, format: .number).multilineTextAlignment(.center).font(.title)
+                    TextField("Answer", value: $userAnswer, format: .number)
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                    
+                    // need to add alerts
+                    // need to ad alert for end of game
+                    // need to add score counter 
+                        .onSubmit {
+                            evaluateAnswer(question: viewModel.questions[questionNumber])
+                            print("Submitting my solution • \(userAnswer)")
+                            if questionNumber < viewModel.numQuestions - 1 {
+                                questionNumber += 1
+                            }
+                        }
                 }
                 Spacer()
                 Spacer()
@@ -114,7 +134,7 @@ struct SessionsView: View {
             // pick a random multiplicator
             let selectedMultiplicator = viewModel.selectedMultiplication + 1
             let multiplicator = Int.random(in: 1..<13)
-            let questionText = "What is \(selectedMultiplicator) * \(multiplicator)?"
+            let questionText = "What is \(selectedMultiplicator) • \(multiplicator)?"
             let answer = selectedMultiplicator * multiplicator
             print(questionText)
             print(answer)
