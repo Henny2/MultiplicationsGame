@@ -41,11 +41,30 @@ struct GameView: View {
     @Bindable var viewModel: ViewModel
     @State var questionNumber = 0
     @State var userAnswer = 0
+    @State var showSolutionAlert = false
+    @State var showGameEndAlert = false
+    @State var userScore = 0
+    @State var solutionAlertTitle = ""
+    @State var solutionAlertMessage = ""
+    @State var gameEndAlertTitle = "That's a wrap!"
+    @State var gameEndAlertMessage = ""
     func evaluateAnswer(question: Question){
         if userAnswer == question.answer {
+            userScore += 1
             print("Correct answer")
+            solutionAlertTitle = "Correct!"
+            solutionAlertMessage = "Your current score is \(userScore). Keep it up!"
         } else {
+            userScore -= 1
+            solutionAlertTitle = "Wrong!"
+            solutionAlertMessage = "The answer is \(question.answer)."
             print("That's wrong!")
+        }
+        if questionNumber == viewModel.numQuestions - 1 {
+            showGameEndAlert = true
+        }
+        else {
+            showSolutionAlert = true
         }
     }
     var body: some View {
@@ -61,18 +80,17 @@ struct GameView: View {
                     
                     // need to add alerts
                     // need to ad alert for end of game
-                    // need to add score counter 
+                    // need to add score counter
                         .onSubmit {
                             evaluateAnswer(question: viewModel.questions[questionNumber])
                             print("Submitting my solution • \(userAnswer)")
-                            if questionNumber < viewModel.numQuestions - 1 {
-                                questionNumber += 1
-                            }
+                            
                         }
                 }
                 Spacer()
                 Spacer()
                 Spacer()
+                Text("Your Score: \(userScore)")
             }
             .navigationTitle("MultiFly")
             .toolbar{
@@ -80,8 +98,25 @@ struct GameView: View {
                     viewModel.gameIsActive = false
                 }
             }
+        }.alert(solutionAlertTitle, isPresented: $showSolutionAlert){
+            Button("OK"){
+                if questionNumber < viewModel.numQuestions - 1 {
+                    questionNumber += 1
+                }
+                userAnswer = 0
+            }
+        } message: {
+            Text(solutionAlertMessage)
+        }
+        .alert(gameEndAlertTitle, isPresented: $showGameEndAlert){
+            Button("Restart Game"){
+                viewModel.gameIsActive = false
+            }
+        } message: {
+            Text("Your final score is \(userScore).")
         }
     }
+    
 }
 
 struct SessionsView: View {
